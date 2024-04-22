@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    srand(time(0));
+    srand(time(NULL));
     int daysUntilExpiration = rand() % 12; // Generate a random number between 0 and 11
     cout << "Enter any number: ";
     cin >> daysUntilExpiration;
