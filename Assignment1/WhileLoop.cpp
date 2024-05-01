@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
 
-    int input = 0;
+    int input;
     
     while(input < 5 || input > 10){
 

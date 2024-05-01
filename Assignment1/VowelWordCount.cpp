@@ -2,13 +2,14 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+using namespace std;
 
 // Function to count vowels in a string
-int countVowels(const std::string& text) {
+int countVowels(const string& text) {
     int vowelCount = 0;
-    const std::string vowels = "aeiouAEIOU";
+    const string vowels = "aeiouAEIOU";
     for (char abho : text) {
-        if (vowels.find(abho) != std::string::npos) {
+        if (vowels.find(abho) != string::npos) {
             vowelCount++;
         }
     }
@@ -16,11 +17,11 @@ int countVowels(const std::string& text) {
 }
 
 // Function to count words in a string
-int countWords(const std::string& text) {
+int countWords(const string& text) {
     int wordCount = 0;
     bool inWord = false;
     for (char abho : text) {
-        if (std::isspace(abho)) {
+        if (isspace(abho)) {
             inWord = false;
         } else if (!inWord) {
             inWord = true;
@@ -31,15 +32,15 @@ int countWords(const std::string& text) {
 }
 
 // Function to reverse a string
-std::string reverse(const std::string& text) {
-    return std::string(text.rbegin(), text.rend());
+string reverse(const string& text) {
+    return string(text.rbegin(), text.rend());
 }
 
 // Function to capitalize the second letter of each word in a string
-std::string capitalizeSecondLetter(const std::string& text) {
-    std::string result = text;
+string capitalizeSecondLetter(const string& text) {
+    string result = text;
     for (size_t i = 0; i < result.length(); ++i) {
-        if (std::isalpha(result[i]) && (i == 0 || std::isspace(result[i - 1]))) {
+        if (isalpha(result[i]) && (i == 0 || isspace(result[i - 1]))) {
             result[i + 1] = std::toupper(result[i + 1]);
         }
     }
@@ -48,30 +49,30 @@ std::string capitalizeSecondLetter(const std::string& text) {
 
 int main() {
     // Open the text file
-    std::ifstream file("module_statement.txt");
+    ifstream file("module_statement.txt");
     if (!file.is_open()) {
-        std::cerr << "Error: Unable to open file." << std::endl;
+        cerr << "Error: Unable to open file." <<endl;
         return 1;
     }
 
     // Read the contents of the file into a string
-    std::string fileData((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    string fileData((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
 
-    // i. Count vowels
+    // i Count vowels
     int vowelCount = countVowels(fileData);
-    std::cout << "Number of vowels: " << vowelCount << std::endl;
+    cout << "Number of vowels: " << vowelCount <<endl;
 
-    // ii. Count words
+    //  Count words
     int wordCount = countWords(fileData);
-    std::cout << "Number of words: " << wordCount << std::endl;
+    cout << "Number of words: " << wordCount <<endl;
 
-    // iii. Reverse statement
-    std::string reversedStatement = reverse(fileData);
-    std::cout << "Reversed statement: " << reversedStatement << std::endl;
+    // Reverse statement
+    string reversedStatement = reverse(fileData);
+    cout << "Reversed statement: " << reversedStatement << endl;
 
-    // iv. Capitalize second letter
-    std::string capitalizedStatement = capitalizeSecondLetter(fileData);
-    std::cout << "Statement with second letter capitalized: " << capitalizedStatement << std::endl;
+    // Capitalize second letter
+    string capitalizedStatement = capitalizeSecondLetter(fileData);
+    cout << "Statement with second letter capitalized: " << capitalizedStatement <<endl;
 
     return 0;
 }
