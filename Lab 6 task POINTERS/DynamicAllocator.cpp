@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    // to allocate an integer NEW INT; is used when dynamically allocating the variable while NULLPTR; is used just initializing the pointer
+    // to allocate an integer NEW INT; is used when dynamically allocating the variable while NULLPTR; is used just for initializing the pointer
     int* dynamicInt = new int;
 
     // to allocate a string
